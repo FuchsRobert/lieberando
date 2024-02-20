@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./img/pizza.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="script.js"></script>
+    <title>Lieberando</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="headerLeft"><img src="./img/pizza.png" alt="Pizza-Icon">
+            <h1>Lieberando</h1>
+        </div>
+        <a href="index.html" class="headerMenu">Speisekarte</a>
+        <div class="headerRight">
+            <img src="./img/burger.png" alt="Burgermenü">
+            <img class="flag-img" src="./img/germany.png" alt="Flagge">
+        </div>
+    </header>
+
+    <div class="content">
+        <div class="left">
+            <img class="foodImage" src="./img/pancake.jpg" alt="Chinese Food">
+
+            <div class="restaurantLogo">
+                <img class="restaurantLogo" src="./img/restaurant.png" alt="Chinese Restaurant">
+            </div>
+
+            <div class="restaurantDescription">
+                <div class="leftRating">
+                    <span class="restaurantName"><b>Sweet Heaven</b></span>
+                    <div class="starGroup">
+                        <img class="ratingStar" src="./img/starYel.png" alt="Stern">
+                        <img class="ratingStar" src="./img/starYel.png" alt="Stern">
+                        <img class="ratingStar" src="./img/starYel.png" alt="Stern">
+                        <img class="ratingStar" src="./img/starYel.png" alt="Stern">
+                        <img class="ratingStar" src="./img/star.png" alt="Stern">
+                        <span class="ratingText">1.001 Bewertung(en)</span>
+                    </div>
+                </div>
+                <div class="rightRating">
+                    <img class="infoSection" src="./img/infoButton.png" alt="Info">
+                    <img class="infoSection" src="./img/herzLogo.png" alt="Herz">
+                </div>
+            </div>
+
+            <div class="menuSelection">
+                <img class="selectionImage" src="./img/suche.png" alt="Lupe">
+                <a href="index.html" class="selectionLink">Beliebte Gerichte</a>
+                <a href="index.html" class="selectionLink">Pancakes</a>
+                <a href="index.html" class="selectionLink">Waffeln</a>
+                <a href="index.html" class="selectionLink">Berliner</a>
+                <a href="index.html" class="selectionLink">Eis</a>
+                <a href="index.html" class="selectionLink">Shakes</a>
+                <a href="index.html" class="selectionLink"><b>></b></a>
+            </div>
+
+            <div class="foodSection" id="dishContainer">
+            </div>
+
+        </div>
+
+        <div class="shoppingCart">
+            <h2 class="headlineBasket">Warenkorb</h2>
+            <div id="basket" class="basketWhole">
+                <div class="basketStyle"><img class="basketImage" src="./img/shopping-cart.png" alt="Warenkorb">
+                    <h1 class="cartHeadline"><b>Fülle deinen Warenkorb</b></h1>
+                    <h2 class="cartH2">Füge leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</h2>
+                </div>
+                <div id="totalSum">
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footerUnit">
+        <a class="footerLinks" href="index.html">Datenschutz</a>
+        <a class="footerLinks" href="index.html">Impressum</a>
+    </footer>
+
+</body>
+</html>

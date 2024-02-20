@@ -1,0 +1,353 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Lato';
+}
+
+
+/* A */
+.addImage {
+    height: 25px;
+    width: auto;
+    border: 1px solid darkgrey;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.addSection {
+    display: flex;
+    justify-content: end;
+}
+
+.amountCounter {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+
+/* B */
+.basketWhole {
+    margin-top: 20px;
+}
+
+.basketStyle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.basketImage {
+    width: 60px;
+    height: auto;
+    opacity: 0.3;
+}
+
+.basketContent {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* C */
+.card {
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    background-color: rgba(255, 166, 0, 0.137);
+}
+
+.cartHeadline {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: lightgrey;
+}
+
+.cartH2 {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    color: lightgrey;
+}
+
+.cardDistance{
+    margin: 15px;
+}
+
+.content {
+    display: flex;
+}
+
+
+/* D */
+.deleteContainer {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dishDescription {
+    font-size: 16px;
+    color: darkgrey;
+}
+
+
+/* E */
+
+
+/* F */
+.flag-img {
+    width: 40px !important;
+    height: 20px !important;
+}
+
+.foodImage {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    position: relative;
+}
+
+.foodSection {
+    margin: 30px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+footer {
+    height: 150px;
+    background: rgb(240, 238, 235);
+}
+
+.footerUnit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerLinks {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: 700;
+    padding-left: 30px;
+}
+
+.footerLinks:hover {
+    text-decoration: underline;
+}
+
+
+/* G */
+.garbageImage {
+    height: 20px;
+    cursor: pointer;
+}
+
+
+/* H */
+header {
+    height: 100px;
+    background-color: orange;
+    display: flex;
+    justify-content: space-between;
+}
+
+header img {
+    height: 75px;
+    width: auto;
+    padding-right: 15px;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.headerMenu {
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.headerRight img {
+    height: 40px;
+    width: auto;
+    cursor: pointer;
+}
+
+.headlineBasket {
+    display: flex;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.heart {
+    color: white;
+}
+
+.heart.red {
+    color: red;
+}
+
+
+/* I */
+.infoSection {
+    height: 30px;
+    width: 30px;
+    border: 1px solid darkgrey;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* J */
+
+
+/* K */
+
+
+/* L */
+.left {
+    width: 70%;
+    background-color: rgb(252, 252, 252);
+}
+
+.leftRating {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+
+/* M */
+.menuSelection {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 25px;
+    background-color: rgba(255, 166, 0, 0.315);
+    padding: 30px;
+}
+
+
+/* N */
+
+
+/* O */
+
+
+/* P */
+.popularDish {
+    background-color: rgba(255, 166, 0, 0.315);
+}
+
+
+/* Q */
+
+
+/* R */
+.rightRating {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.ratingStar {
+    width: auto;
+    height: 20px;
+    cursor: pointer;
+}
+
+.ratingText {
+    margin-left: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.restaurantDescription {
+    display: flex;
+    justify-content: space-between;
+}
+
+.restaurantLogo {
+    width: auto;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+}
+
+.restaurantName {
+    font-size: 20px;
+}
+
+
+/* S */
+.shoppingCart {
+    width: 30%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    overflow: auto;
+}
+
+.selectionImage {
+    height: 30px;
+    width: auto;
+    cursor: pointer;
+}
+
+.selectionLink {
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.selectionLink:hover {
+    text-decoration: underline;
+}
+
+.starGroup {
+    margin-top: 5px;
+    display: flex;
+    cursor: pointer;
+}
+
+
+/* T */
+/* U */
+/* V */
+/* W */
+/* X */
+/* Y */
+/* Z */
