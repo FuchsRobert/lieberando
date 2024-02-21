@@ -54,6 +54,7 @@ let dishes = [
 
 let basketItems = [];
 let amount = [];
+let addedPrices = [];
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -129,10 +130,19 @@ function showBasket() {
                     <img class="garbageImage" src="./img/minus.png" alt="Entfernen" onclick="deleteAmount(${i})">
                     <span class="amountCounter">${amount[i]}</span>
                     <img class="garbageImage" src="./img/plus.png" alt="Hinzufügen" onclick="addAmount(${i})">
-
                 </div>
-            </div>`;
+                </div>`;
     });
+
+    basket.innerHTML += `<div class="calcContent">
+        <p>Zwischensumme: ${calculateSubtotal().toFixed(2).replace('.', ',')} €</p>
+        <p>Lieferkosten: ${calculateDeliveryCosts().toFixed(2).replace('.', ',')} €</p>
+        <p><b><u>Gesamt: ${calculateTotal().toFixed(2).replace('.', ',')} €</u></b></p>
+    </div>`;
+
+    basket.innerHTML += `<div class="orderButtonContainer">
+        <button class="orderButton">Bestellen</button>
+    </div>`;
   } else {
     basket.innerHTML = `
             <div class="basketStyle">
@@ -145,15 +155,50 @@ function showBasket() {
 }
 
 
+function calculateSubtotal() {
+  let subtotal = 0;
+  for (let i = 0; i < basketItems.length; i++) {
+    subtotal += basketItems[i].price * amount[i];
+  }
+  return subtotal;
+}
+
+
+function calculateDeliveryCosts() {
+  if (calculateSubtotal() > 15) {
+    return 0;
+  } else {
+    return 2.50;
+  }
+}
+
+
+function calculateTotal() {
+  return calculateSubtotal() + calculateDeliveryCosts();
+}
+
+
+
 function saveBasket() {
-  localStorage.setItem('basketItems', JSON.stringify(basketItems));
+  const basketData = { items: basketItems, amounts: amount };
+
+  localStorage.setItem('basketData', JSON.stringify(basketData));
+  localStorage.setItem('addedPrices', JSON.stringify(addedPrices));
 }
 
 
 function loadBasket() {
-  let savedBasket = localStorage.getItem('basketItems');
-  if (savedBasket) {
-    basketItems = JSON.parse(savedBasket);
+  let savedBasketData = localStorage.getItem('basketData');
+  let savedAddedPrices = localStorage.getItem('addedPrices');
+
+  if (savedBasketData && savedAddedPrices) {
+    const basketData = JSON.parse (savedBasketData);
+    const savedPrices = JSON.parse (savedAddedPrices);
+
+    basketItems = basketData.items;
+    amount = basketData.amounts;
+
+    addedPrices = savedPrices;
   }
 }
 
@@ -171,13 +216,4 @@ function deleteAmount(i) {
   showBasket();
 }
 
-
-function updateShoppingBasket() {
-  let sum = 0;
-  for (let i = 0; i < basketItems.length; i++) {
-      sum += basketItems[i].price * amount[i];
-  }
-  let finalSum = sum + 2.50;
-  document.getElementById('totalSum').innerHTML = finalSum.toFixed(2).replace('.', ',') + " €";
-}
 
