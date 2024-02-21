@@ -121,37 +121,52 @@ function showBasket() {
   let basket = document.getElementById('basket');
   basket.innerHTML = ``;
   if (basketItems.length > 0) {
-    basketItems.forEach(function (item, i) {
-      basket.innerHTML += `<div class="card card-body cardDistance">
-                <div class="basketContent">
-                <p>${item.name}</p>
-                <p>${item.price.toFixed(2).replace('.', ',')} €</p></div>
-                <div class="deleteContainer">
-                    <img class="garbageImage" src="./img/minus.png" alt="Entfernen" onclick="deleteAmount(${i})">
-                    <span class="amountCounter">${amount[i]}</span>
-                    <img class="garbageImage" src="./img/plus.png" alt="Hinzufügen" onclick="addAmount(${i})">
-                </div>
-                </div>`;
-    });
+    addedItems();
+    showCosts();
+  } else {
+    emptyBasket();
+  }
+}
 
-    basket.innerHTML += `<div class="calcContent">
+
+function addedItems() {
+  basketItems.forEach(function (item, i) {
+    basket.innerHTML += `<div class="card card-body cardDistance">
+              <div class="basketContent">
+              <p>${item.name}</p>
+              <p>${item.price.toFixed(2).replace('.', ',')} €</p></div>
+              <div class="deleteContainer">
+                  <img class="garbageImage" src="./img/minus.png" alt="Entfernen" onclick="deleteAmount(${i})">
+                  <span class="amountCounter">${amount[i]}</span>
+                  <img class="garbageImage" src="./img/plus.png" alt="Hinzufügen" onclick="addAmount(${i})">
+              </div>
+              </div>`;
+  });
+}
+
+
+function showCosts() {
+  basket.innerHTML += `<div class="calcContent">
         <p>Zwischensumme: ${calculateSubtotal().toFixed(2).replace('.', ',')} €</p>
         <p>Lieferkosten: ${calculateDeliveryCosts().toFixed(2).replace('.', ',')} €</p>
         <p><b><u>Gesamt: ${calculateTotal().toFixed(2).replace('.', ',')} €</u></b></p>
+        <p style="font-size: 14px; color: darkgray">${deliveryCostText()}</p>
     </div>`;
 
     basket.innerHTML += `<div class="orderButtonContainer">
         <button class="orderButton">Bestellen</button>
     </div>`;
-  } else {
-    basket.innerHTML = `
-            <div class="basketStyle">
-                <img class="basketImage" src="./img/shopping-cart.png" alt="Warenkorb">
-                <h1 class="cartHeadline"><b>Fülle deinen Warenkorb</b></h1>
-                <h2 class="cartH2">Füge leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</h2>
-            </div>
-        `;
-  }
+}
+
+
+function emptyBasket() {
+  basket.innerHTML = `
+  <div class="basketStyle">
+      <img class="basketImage" src="./img/shopping-cart.png" alt="Warenkorb">
+      <h1 class="cartHeadline"><b>Fülle deinen Warenkorb</b></h1>
+      <h2 class="cartH2">Füge leckere Gerichte aus der Speisekarte hinzu und bestelle dein Essen.</h2>
+  </div>
+`;
 }
 
 
@@ -169,6 +184,14 @@ function calculateDeliveryCosts() {
     return 0;
   } else {
     return 2.50;
+  }
+}
+
+function deliveryCostText() {
+  if (calculateSubtotal() > 15) {
+    return ``;
+  } else {
+    return `<i>Bestelle für min. 15 € für eine kostenlose Lieferung.</i>`
   }
 }
 
@@ -192,8 +215,8 @@ function loadBasket() {
   let savedAddedPrices = localStorage.getItem('addedPrices');
 
   if (savedBasketData && savedAddedPrices) {
-    const basketData = JSON.parse (savedBasketData);
-    const savedPrices = JSON.parse (savedAddedPrices);
+    const basketData = JSON.parse(savedBasketData);
+    const savedPrices = JSON.parse(savedAddedPrices);
 
     basketItems = basketData.items;
     amount = basketData.amounts;
@@ -215,5 +238,3 @@ function deleteAmount(i) {
   saveBasket();
   showBasket();
 }
-
-
